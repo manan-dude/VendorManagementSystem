@@ -108,6 +108,21 @@ $ npm run start:dev
 * The API endpoints are protected by JWT authentication. You'll need to provide a valid JWT token in the `Authorization` header.
 * The token format should be `Bearer <token>`.
 
+## Vendor Performance API Documentation
+
+**Base URL:** `/vendors`
+
+### GET `/vendors/:vendorId/performance`
+* **Description:** Retrieves the performance metrics for a specific vendor.
+* **Path Parameters:**
+  - `vendorId` (string): The ID of the vendor.
+* **Response:** An object containing the following properties:
+  - `onTimeDeliveryRate` (number)
+  - `qualityRatingAvg` (number)
+  - `averageResponseTime` (number)
+  - `fulfillmentRate` (number)
+
 **Note:** The API adheres to RESTful principles and uses standard HTTP methods for CRUD operations. The response formats and error handling can be further customized based on your specific requirements.
+
 
 
