@@ -60,5 +60,54 @@ $ npm run start:dev
   - `vendorCode` (string): The vendor code.
 * **Response:** A success message indicating the vendor was deleted, or an error if the vendor is not found.
 
+## Purchase Order API Documentation
+
+**Base URL:** `/purchase-orders`
+
+### GET `/purchase-orders`
+* **Description:** Retrieves a list of all purchase orders.
+* **Query Parameters:**
+  - `vendorCode` (optional): Filter purchase orders by vendor code.
+* **Response:** An array of PurchaseOrder objects.
+
+### POST `/purchase-orders`
+* **Description:** Creates a new purchase order.
+* **Request Body:** A PurchaseOrder object containing the following properties:
+  - `poNumber` (string, unique)
+  - `vendor` (ObjectId, reference to Vendor)
+  - `orderDate` (Date)
+  - `deliveryDate` (Date)
+  - `items` (array of PurchaseOrderItem objects)
+  - `quantity` (number)
+  - `status` (string, enum: 'pending', 'completed', 'canceled')
+  - `qualityRating` (number, 0-5)
+  - `issueDate` (Date)
+  - `acknowledgmentDate` (Date)
+* **Response:** A success message indicating the purchase order was added.
+
+### GET `/purchase-orders/:poId`
+* **Description:** Retrieves a specific purchase order by its ID.
+* **Path Parameters:**
+  - `poId` (string): The ID of the purchase order.
+* **Response:** A PurchaseOrder object or `null` if not found.
+
+### PUT `/purchase-orders/:poId`
+* **Description:** Updates a specific purchase order by its ID.
+* **Path Parameters:**
+  - `poId` (string): The ID of the purchase order.
+* **Request Body:** A partial PurchaseOrder object containing the updated properties.
+* **Response:** The updated PurchaseOrder object.
+
+### DELETE `/purchase-orders/:poId`
+* **Description:** Deletes a specific purchase order by its ID.
+* **Path Parameters:**
+  - `poId` (string): The ID of the purchase order.
+* **Response:** A success message indicating the purchase order was deleted.
+
+**Authentication:**
+* The API endpoints are protected by JWT authentication. You'll need to provide a valid JWT token in the `Authorization` header.
+* The token format should be `Bearer <token>`.
+
 **Note:** The API adheres to RESTful principles and uses standard HTTP methods for CRUD operations. The response formats and error handling can be further customized based on your specific requirements.
+
 
