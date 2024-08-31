@@ -13,51 +13,52 @@ $ npm install
 ## Compile and run the project
 
 ```bash
-# development
-$ npm run start
 
-# watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 
-## Run tests
+# API informations
 
-```bash
-# unit tests
-$ npm run test
+## Vendor API Documentation
 
-# e2e tests
-$ npm run test:e2e
+### Base URL: `/vendors`
 
-# test coverage
-$ npm run test:cov
-```
+#### GET `/vendors`
+* **Description:** Retrieves a list of all vendors.
+* **Response:** An array of Vendor objects.
 
-## Resources
+#### POST `/vendors`
+* **Description:** Creates a new vendor.
+* **Request Body:** A Vendor object containing the following properties:
+  - `name` (string)
+  - `contactDetails` (string)
+  - `address` (string)
+  - `vendorCode` (string, unique)
+  - `onTimeDeliveryRate` (number, 0-100)
+  - `qualityRatingAvg` (number, 0-5)
+  - `averageResponseTime` (number, 0)
+  - `fulfillmentRate` (number, 0-100)
+* **Response:** A success message indicating the vendor was added.
 
-Check out a few resources that may come in handy when working with NestJS:
+#### GET `/vendors/:vendorCode`
+* **Description:** Retrieves a specific vendor by its vendor code.
+* **Path Parameters:**
+  - `vendorCode` (string): The vendor code.
+* **Response:** A Vendor object or an error if the vendor is not found.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+#### PUT `/vendors/:vendorCode`
+* **Description:** Updates a specific vendor by its vendor code.
+* **Path Parameters:**
+  - `vendorCode` (string): The vendor code.
+* **Request Body:** A partial Vendor object containing the updated properties.
+* **Response:** A success message indicating the vendor was updated.
 
-## Support
+#### DELETE `/vendors/:vendorCode`
+* **Description:** Deletes a specific vendor by its vendor code.
+* **Path Parameters:**
+  - `vendorCode` (string): The vendor code.
+* **Response:** A success message indicating the vendor was deleted, or an error if the vendor is not found.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Note:** The API adheres to RESTful principles and uses standard HTTP methods for CRUD operations. The response formats and error handling can be further customized based on your specific requirements.
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
