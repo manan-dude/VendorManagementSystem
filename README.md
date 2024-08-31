@@ -1,11 +1,5 @@
 # Note:  Created a Docker image and hosted on the [Link](https://vendormanagementsystem.onrender.com).
 
-## Docker:
-```
-docker build -t your-nestjs-app .
-docker run -e MONGODB_URI="mongodb://your_mongodb_username:your_mongodb_password@your_mongodb_host:your_mongodb_port/your_database_name" -p 3000:3000 your-nestjs-app
-```
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -130,5 +124,10 @@ $ npm run start:dev
 
 **Note:** The API adheres to RESTful principles and uses standard HTTP methods for CRUD operations. The response formats and error handling can be further customized based on your specific requirements.
 
+## Docker:
+```
+docker build -t your-nestjs-app .
+docker run -e MONGODB_URI="mongodb://your_mongodb_username:your_mongodb_password@your_mongodb_host:your_mongodb_port/your_database_name" -p 3000:3000 your-nestjs-app
+```
 
 
