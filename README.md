@@ -1,4 +1,4 @@
-# Note:  Created a Docker image and hosted on the [Link](https://vendormanagementsystem.onrender.com).
+# Note:  Created a Docker image and also hosted on the [Link](https://vendormanagementsystem.onrender.com).
 
 ## Description
 
